@@ -32,12 +32,13 @@
         .page {
             width: 1366px;
             height: 768px;
+            margin: 0;
             border: 1px solid #c8d7ee;
             border-radius: 10px;
             overflow: hidden;
             background:
-                radial-gradient(circle at top right, rgba(106, 185, 255, 0.20), transparent 32%),
-                linear-gradient(180deg, rgba(245, 249, 255, 0.97) 0%, rgba(233, 242, 255, 0.94) 100%);
+                linear-gradient(180deg, rgba(245, 249, 255, 0.94) 0%, rgba(236, 244, 255, 0.9) 100%),
+                url("assets/images/Model/medical.png") center bottom/cover no-repeat;
             transform: scale(var(--page-scale, 1));
             transform-origin: top left;
             display: flex;
@@ -45,19 +46,29 @@
         }
 
         .top {
-            height: 108px;
-            padding: 14px 54px;
+            height: 118px;
+            padding: 16px 54px;
             border-bottom: 1px solid #d8e4f4;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.72);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
+        .brand {
+            display: flex;
+            align-items: center;
+            width: 250px;
+            height: 84px;
+            overflow: visible;
+        }
+
         .logo {
-            width: 258px;
-            height: auto;
+            width: auto;
+            max-width: 100%;
+            max-height: 84px;
             display: block;
+            object-fit: contain;
         }
 
         .nav {
@@ -69,9 +80,9 @@
         .nav a {
             color: #5f7497;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 17px;
             font-weight: 700;
-            padding: 8px 3px;
+            padding: 10px 3px;
             border-bottom: 3px solid transparent;
         }
 
@@ -82,52 +93,130 @@
 
         .btn {
             text-decoration: none;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 700;
-            color: #fff;
-            border: 1px solid transparent;
-            border-radius: 12px;
-            background: linear-gradient(120deg, #2f5fd9, #3484ef);
-            padding: 10px 18px;
+            color: #2f4f7c;
+            border: 1px solid #cfddf2;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.82);
+            padding: 12px 20px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             line-height: 1;
-            box-shadow: 0 9px 16px rgba(56, 101, 208, 0.22);
+            min-height: 52px;
+            transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
         }
 
-        .content {
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(43, 84, 145, 0.16);
+        }
+
+        .btn-mint {
+            background: #cfecea;
+            border-color: #b8dfdc;
+            color: #2c7182;
+        }
+
+        .btn-mint:hover {
+            background: #c1e6e2;
+            border-color: #a8d7d3;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.92);
+            color: #2f4f7c;
+            border-color: #cfddf2;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: #b9cbe8;
+        }
+
+        .btn-login {
+            background: linear-gradient(120deg, #2f5fd9, #3484ef);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(56, 101, 208, 0.28);
+            min-width: 118px;
+            padding: 13px 24px;
+            font-size: 18px;
+        }
+
+        .btn-login:link,
+        .btn-login:visited,
+        .btn-login:active,
+        .btn-login:focus {
+            color: #ffffff;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(120deg, #2556d4, #2e79e8);
+            color: #ffffff;
+            box-shadow: 0 16px 28px rgba(44, 92, 188, 0.32);
+        }
+
+        .hero {
             flex: 1;
-            padding: 34px 48px 24px;
+            padding: 30px 48px 16px;
             display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 24px;
+            grid-template-columns: 1.02fr .98fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .eyebrow {
+            display: inline-flex;
+            align-self: flex-start;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid #dbe7f7;
+            background: rgba(255, 255, 255, 0.88);
             color: #3f85eb;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
-            letter-spacing: .14em;
+            letter-spacing: .08em;
             text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .title {
-            font-size: 56px;
-            line-height: 1.04;
-            font-weight: 800;
-            color: #193a70;
             margin-bottom: 16px;
         }
 
+        .eyebrow::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #6fd4cf;
+            box-shadow: 0 0 0 6px rgba(111, 212, 207, 0.18);
+        }
+
+        .title {
+            font-size: 58px;
+            line-height: 1.04;
+            font-weight: 800;
+            color: #193a70;
+            margin-bottom: 14px;
+        }
+
+        .blue { color: #3f85eb; }
+
         .lead {
-            font-size: 21px;
-            line-height: 1.5;
-            color: #5a7398;
+            font-size: 19px;
+            line-height: 1.48;
+            color: #60789d;
             font-weight: 600;
             margin-bottom: 22px;
-            max-width: 710px;
+            max-width: 620px;
         }
 
         .panel-grid {
@@ -137,49 +226,142 @@
         }
 
         .panel {
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid #dce7f7;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #dde8f7;
             border-radius: 18px;
             padding: 18px 18px 16px;
-            box-shadow: 0 16px 30px rgba(35, 73, 136, 0.08);
+            box-shadow: 0 12px 24px rgba(51, 85, 140, 0.09);
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .panel:hover,
+        .stat:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 28px rgba(51, 85, 140, 0.14);
         }
 
         .panel h3 {
-            font-size: 20px;
+            font-size: 21px;
             color: #1f3f72;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .panel p {
-            font-size: 16px;
-            line-height: 1.45;
+            font-size: 15px;
+            line-height: 1.42;
             color: #60789d;
             font-weight: 600;
         }
 
-        .right {
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .hero-right {
             display: flex;
             flex-direction: column;
             gap: 14px;
+            justify-content: center;
+        }
+
+        .visual-shell {
+            position: relative;
+            width: 100%;
+            height: 336px;
+            padding: 20px;
+            border-radius: 42px 120px 42px 120px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(214, 232, 255, 0.16)),
+                linear-gradient(180deg, rgba(74, 152, 233, 0.22), rgba(255, 255, 255, 0.08));
+            border: 1px solid rgba(255, 255, 255, 0.62);
+            box-shadow:
+                0 28px 50px rgba(43, 84, 145, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            overflow: hidden;
+        }
+
+        .visual-shell::before {
+            content: "";
+            position: absolute;
+            inset: 16px 22px auto auto;
+            width: 220px;
+            height: 110px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent);
+            z-index: 1;
+        }
+
+        .visual-shell::after {
+            content: "";
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 20px;
+            height: 62px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(62, 123, 198, 0.24), transparent 68%);
+            filter: blur(10px);
+            z-index: 1;
+        }
+
+        .hero-image-wrap {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px 92px 28px 92px;
+            overflow: hidden;
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+                0 18px 30px rgba(31, 66, 118, 0.16);
+        }
+
+        .hero-image-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 22%),
+                linear-gradient(90deg, rgba(218, 235, 255, 0.16), transparent 36%, transparent 70%, rgba(232, 243, 255, 0.14));
+            pointer-events: none;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            filter: saturate(1.02) contrast(1.02) brightness(1.01);
         }
 
         .spotlight {
-            background: linear-gradient(145deg, #2d68d8, #4ba1ff);
+            position: absolute;
+            left: 28px;
+            right: 28px;
+            bottom: 26px;
+            z-index: 3;
+            background: linear-gradient(145deg, rgba(22, 54, 103, 0.92), rgba(45, 104, 216, 0.84));
             color: #fff;
             border-radius: 24px;
-            padding: 24px 24px 20px;
+            padding: 20px 22px 18px;
             box-shadow: 0 20px 36px rgba(34, 82, 155, 0.24);
+            backdrop-filter: blur(10px);
         }
 
         .spotlight h2 {
-            font-size: 32px;
+            font-size: 28px;
             line-height: 1.1;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .spotlight p {
-            font-size: 17px;
-            line-height: 1.5;
+            font-size: 15px;
+            line-height: 1.42;
             color: rgba(255, 255, 255, 0.92);
             font-weight: 600;
         }
@@ -192,10 +374,12 @@
 
         .stat {
             background: rgba(255, 255, 255, 0.92);
-            border: 1px solid #dce7f7;
+            border: 1px solid #dde8f7;
             border-radius: 18px;
-            padding: 18px;
+            padding: 18px 16px;
             text-align: center;
+            box-shadow: 0 12px 24px rgba(51, 85, 140, 0.09);
+            transition: transform .18s ease, box-shadow .18s ease;
         }
 
         .stat strong {
@@ -209,19 +393,6 @@
             font-size: 15px;
             color: #60789d;
             font-weight: 700;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 4px;
-        }
-
-        .btn-light {
-            background: rgba(255, 255, 255, 0.94);
-            color: #2f4f7c;
-            border-color: #cfddf2;
-            box-shadow: none;
         }
 
         .footer {
@@ -243,18 +414,20 @@
 <div class="viewport">
 <div class="page">
     <header class="top">
-        <img class="logo" src="assets/images/logo.png" alt="SmartLab logo">
+        <div class="brand">
+            <img class="logo" src="assets/images/logo.png" alt="SmartLab logo">
+        </div>
         <nav class="nav">
             <a href="index.jsp">Home</a>
             <a class="active" href="about.jsp">About</a>
-            <a class="btn" href="login.jsp">Login</a>
+            <a class="btn btn-login" href="login.jsp">Login</a>
         </nav>
     </header>
 
-    <main class="content">
-        <section>
+    <main class="hero">
+        <section class="hero-left">
             <div class="eyebrow">About SmartLab</div>
-            <h1 class="title">A single platform for patients, labs, appointments and digital reports.</h1>
+            <h1 class="title">A single platform for <span class="blue">patients, labs, appointments</span> and digital reports.</h1>
             <p class="lead">
                 SmartLab is a web-based medical lab management system built to reduce manual work across appointment
                 booking, lab discovery, payment tracking, report delivery and review handling. It gives patients a
@@ -279,15 +452,25 @@
                     <p>The system supports digital workflows today and leaves room for additional services, gateways and admin controls later.</p>
                 </article>
             </div>
+
+            <div class="hero-actions">
+                <a class="btn btn-outline" href="RegisterLab.jsp">Lab Staff Signup &nbsp;&#8594;</a>
+                <a class="btn btn-mint" href="register.jsp?role=PATIENT">Patient Signup</a>
+            </div>
         </section>
 
-        <aside class="right">
-            <div class="spotlight">
-                <h2>Built for smarter lab coordination</h2>
-                <p>
-                    From first booking to final report, SmartLab keeps each step visible so staff and patients can
-                    follow the same process without confusion.
-                </p>
+        <aside class="hero-right">
+            <div class="visual-shell">
+                <div class="hero-image-wrap">
+                    <img class="hero-image" src="assets/images/Model/1.png" alt="Lab professional">
+                </div>
+                <div class="spotlight">
+                    <h2>Built for smarter lab coordination</h2>
+                    <p>
+                        From first booking to final report, SmartLab keeps each step visible so staff and patients can
+                        follow the same process without confusion.
+                    </p>
+                </div>
             </div>
 
             <div class="stats">
@@ -307,11 +490,6 @@
                     <strong>100%</strong>
                     <span>Digital report flow</span>
                 </div>
-            </div>
-
-            <div class="actions">
-                <a class="btn" href="RegisterLab.jsp">Lab Staff Signup</a>
-                <a class="btn btn-light" href="register.jsp?role=PATIENT">Patient Signup</a>
             </div>
         </aside>
     </main>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2026 at 06:10 PM
+-- Generation Time: May 15, 2026 at 05:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -45,12 +45,17 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `patient_id`, `lab_id`, `appointment_date`, `appointment_time`, `status`, `payment_status`, `notes`, `created_at`, `updated_at`) VALUES
-(8, 2, 6, '0023-12-31', '12:33:00', 'PENDING', 'UNPAID', '', '2026-02-21 12:20:41', '2026-02-21 12:20:41'),
+(8, 2, 6, '0023-12-31', '12:33:00', 'PENDING', 'PAID', '', '2026-02-21 12:20:41', '2026-03-23 18:00:58'),
 (9, 2, 3, '0023-12-31', '18:19:00', 'COMPLETED', 'PAID', '', '2026-02-21 12:34:59', '2026-02-21 12:42:45'),
 (10, 2, 3, '0023-12-31', '12:33:00', 'COMPLETED', 'PAID', '', '2026-02-21 12:50:50', '2026-02-21 13:03:54'),
 (11, 2, 3, '0056-07-06', '18:49:00', 'COMPLETED', 'PAID', '', '2026-02-21 13:05:02', '2026-02-21 13:05:32'),
 (12, 16, 3, '3123-12-12', '19:41:00', 'COMPLETED', 'PAID', '', '2026-02-21 13:55:57', '2026-02-21 13:57:19'),
-(13, 16, 3, '0023-12-31', '08:02:00', 'COMPLETED', 'PAID', '', '2026-02-21 14:17:49', '2026-02-21 14:19:13');
+(13, 16, 3, '0023-12-31', '08:02:00', 'COMPLETED', 'PAID', '', '2026-02-21 14:17:49', '2026-02-21 14:19:13'),
+(14, 2, 3, '2026-03-02', '10:11:00', 'COMPLETED', 'PAID', '', '2026-02-22 03:24:55', '2026-02-22 03:26:36'),
+(15, 2, 3, '2027-02-08', '00:33:00', 'COMPLETED', 'PAID', '', '2026-03-02 03:30:41', '2026-03-23 18:13:43'),
+(16, 2, 3, '2027-02-03', '12:53:00', 'COMPLETED', 'PAID', '', '2026-03-23 18:07:34', '2026-03-23 18:13:38'),
+(17, 2, 3, '2027-01-23', NULL, 'COMPLETED', 'PAID', '', '2026-03-23 18:09:56', '2026-03-23 18:23:50'),
+(18, 2, 3, '2027-06-05', '06:47:00', 'COMPLETED', 'PAID', '', '2026-03-24 01:03:01', '2026-03-24 01:03:32');
 
 --
 -- Triggers `appointments`
@@ -161,7 +166,20 @@ INSERT INTO `appointment_tests` (`id`, `appointment_id`, `test_id`, `price_snaps
 (28, 12, 6, 350.00, '2026-02-21 13:55:57'),
 (29, 12, 5, 650.00, '2026-02-21 13:55:57'),
 (30, 13, 6, 350.00, '2026-02-21 14:17:49'),
-(31, 13, 5, 650.00, '2026-02-21 14:17:49');
+(31, 13, 5, 650.00, '2026-02-21 14:17:49'),
+(32, 14, 6, 350.00, '2026-02-22 03:24:55'),
+(33, 14, 5, 650.00, '2026-02-22 03:24:55'),
+(34, 14, 40, 200.00, '2026-02-22 03:24:55'),
+(35, 15, 6, 350.00, '2026-03-02 03:30:41'),
+(36, 15, 40, 200.00, '2026-03-02 03:30:41'),
+(37, 16, 6, 350.00, '2026-03-23 18:07:34'),
+(38, 16, 5, 650.00, '2026-03-23 18:07:34'),
+(39, 16, 40, 200.00, '2026-03-23 18:07:34'),
+(40, 17, 6, 350.00, '2026-03-23 18:09:56'),
+(41, 17, 5, 650.00, '2026-03-23 18:09:56'),
+(42, 18, 6, 350.00, '2026-03-24 01:03:01'),
+(43, 18, 5, 650.00, '2026-03-24 01:03:01'),
+(44, 18, 40, 200.00, '2026-03-24 01:03:01');
 
 --
 -- Triggers `appointment_tests`
@@ -358,7 +376,8 @@ CREATE TABLE `patient_details` (
 INSERT INTO `patient_details` (`user_id`, `date_of_birth`, `emergency_contact`, `address`) VALUES
 (2, '2004-01-10', '981233232', 'Boudha'),
 (5, '0023-12-31', '981233232', 'boudha'),
-(16, '0023-12-31', '981233232', 'Kathmandu');
+(16, '0023-12-31', '981233232', 'Kathmandu'),
+(17, '2004-01-28', '981233232', 'boudha');
 
 -- --------------------------------------------------------
 
@@ -382,12 +401,17 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `appointment_id`, `method`, `amount`, `status`, `transaction_ref`, `created_at`, `paid_at`) VALUES
-(5, 8, 'KHALTI', 3460.00, 'PENDING', NULL, '2026-02-21 12:20:41', NULL),
+(5, 8, 'KHALTI', 3460.00, 'SUCCESS', NULL, '2026-02-21 12:20:41', '2026-03-23 18:00:58'),
 (6, 9, 'CASH', 3600.00, 'SUCCESS', NULL, '2026-02-21 12:34:59', '2026-02-21 12:36:48'),
 (7, 10, 'ESEWA', 2200.00, 'SUCCESS', NULL, '2026-02-21 12:50:50', '2026-02-21 13:03:40'),
 (8, 11, 'ESEWA', 2200.00, 'SUCCESS', NULL, '2026-02-21 13:05:02', '2026-02-21 13:05:26'),
 (9, 12, 'ESEWA', 1000.00, 'SUCCESS', NULL, '2026-02-21 13:55:57', '2026-02-21 13:57:09'),
-(10, 13, 'BANK_TRANSFER', 1000.00, 'SUCCESS', NULL, '2026-02-21 14:17:49', '2026-02-21 14:19:00');
+(10, 13, 'BANK_TRANSFER', 1000.00, 'SUCCESS', NULL, '2026-02-21 14:17:49', '2026-02-21 14:19:00'),
+(11, 14, 'ESEWA', 1200.00, 'SUCCESS', NULL, '2026-02-22 03:24:55', '2026-02-22 03:26:00'),
+(12, 15, 'BANK_TRANSFER', 550.00, 'SUCCESS', NULL, '2026-03-02 03:30:41', '2026-03-23 18:00:52'),
+(13, 16, 'KHALTI', 1200.00, 'SUCCESS', NULL, '2026-03-23 18:07:34', '2026-03-23 18:08:34'),
+(14, 17, 'KHALTI', 1000.00, 'SUCCESS', NULL, '2026-03-23 18:09:56', '2026-03-23 18:19:40'),
+(15, 18, 'KHALTI', 1200.00, 'SUCCESS', NULL, '2026-03-24 01:03:01', '2026-03-24 01:03:26');
 
 -- --------------------------------------------------------
 
@@ -412,7 +436,12 @@ INSERT INTO `reports` (`id`, `appointment_id`, `file_path`, `uploaded_by`, `uplo
 (3, 10, 'uploads/report_10_4f4a678a-9684-4d81-a38c-66d09f81d7d2.pdf', 6, '2026-02-21 13:03:54'),
 (4, 11, 'uploads/report_11_b58f7579-9a22-46a3-8fd8-a7345bd4d8d4.pdf', 6, '2026-02-21 13:05:32'),
 (5, 12, 'uploads/report_12_8ea0eb8e-1da3-49e0-9c4f-d201c7a5023f.pdf', 6, '2026-02-21 13:57:19'),
-(6, 13, 'uploads/report_13_c357b192-9645-4a11-98fd-e6e4cc1301a5.pdf', 6, '2026-02-21 14:19:13');
+(6, 13, 'uploads/report_13_c357b192-9645-4a11-98fd-e6e4cc1301a5.pdf', 6, '2026-02-21 14:19:13'),
+(7, 14, 'uploads/report_14_99ad9a9b-4fbf-4e26-8a3a-9872aab12c6a.png', 6, '2026-02-22 03:26:36'),
+(8, 16, 'uploads/report_16_a3344397-800a-4c14-bc31-307f85030f7d.jpg', 6, '2026-03-23 18:13:38'),
+(9, 15, 'uploads/report_15_8afe57b9-49a7-4fd9-a230-f19260ee5d3e.jpg', 6, '2026-03-23 18:13:43'),
+(10, 17, 'uploads/report_17_f088889d-2fe2-4ae3-9298-31e4a5d3a1e3.png', 6, '2026-03-23 18:23:50'),
+(11, 18, 'uploads/report_18_490fdf91-f2e8-48e0-a53b-31027a93d14f.jpg', 6, '2026-03-24 01:03:32');
 
 -- --------------------------------------------------------
 
@@ -437,7 +466,12 @@ CREATE TABLE `reviews` (
 INSERT INTO `reviews` (`id`, `appointment_id`, `patient_id`, `lab_id`, `rating`, `comment`, `created_at`) VALUES
 (1, 11, 2, 3, 5, 'Good Service', '2026-02-21 13:51:09'),
 (2, 12, 16, 3, 5, NULL, '2026-02-21 13:58:20'),
-(3, 13, 16, 3, 5, 'Good Service', '2026-02-21 14:20:15');
+(3, 13, 16, 3, 5, 'Good Service', '2026-02-21 14:20:15'),
+(4, 18, 2, 3, 5, NULL, '2026-04-09 16:58:13'),
+(5, 15, 2, 3, 5, NULL, '2026-04-09 16:58:16'),
+(6, 16, 2, 3, 5, NULL, '2026-04-09 16:58:20'),
+(7, 17, 2, 3, 5, NULL, '2026-04-09 16:58:23'),
+(8, 14, 2, 3, 5, NULL, '2026-04-09 16:58:26');
 
 --
 -- Triggers `reviews`
@@ -555,7 +589,8 @@ INSERT INTO `tests` (`id`, `lab_id`, `test_name`, `description`, `price`, `avail
 (36, 11, 'HbA1c', 'Diabetes long-term marker', 1250.00, 'AVAILABLE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
 (37, 12, 'CBC', 'Complete Blood Count', 610.00, 'AVAILABLE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
 (38, 12, 'Urine R/E', 'Routine urine examination', 260.00, 'AVAILABLE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
-(39, 12, 'Lipid Profile', 'Cholesterol panel', 1100.00, 'AVAILABLE', '2026-02-21 12:09:04', '2026-02-21 12:09:04');
+(39, 12, 'Lipid Profile', 'Cholesterol panel', 1100.00, 'AVAILABLE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
+(40, 3, 'Head', 'Head', 200.00, 'AVAILABLE', '2026-02-22 03:23:31', '2026-02-22 03:23:31');
 
 -- --------------------------------------------------------
 
@@ -594,7 +629,8 @@ INSERT INTO `users` (`id`, `full_name`, `username`, `email`, `password_hash`, `c
 (13, 'Kirtipur Metro Lab', 'lab7', 'lab7@gmail.com', '$2a$12$EOAU4RkYb1Xzn6wMiauyNewAS11u4ezz6BZ3/fcHzGA8w4QOSD6aq', '9878901234', 'LAB_STAFF', 'ACTIVE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
 (14, 'HAMS Lab Desk', 'lab8', 'lab8@gmail.com', '$2a$12$CpVU3SJqefbJ2R8Ip0uCEuYMNl7qyNf7j7OSgvIwnZJcY4ad/qeMS', '9889012345', 'LAB_STAFF', 'ACTIVE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
 (15, 'Civil Service Lab', 'lab9', 'lab9@gmail.com', '$2a$12$6lVhXCLb.tSZK1182UFJ2ONNAwOuYMfiGugM1UO9pyxV/gJoq5jf.', '9890123456', 'LAB_STAFF', 'ACTIVE', '2026-02-21 12:09:04', '2026-02-21 12:09:04'),
-(16, 'patient', 'patient', 'patient@gmail.com', '$2a$12$Z6WNNoMqVPYfShSOiKXFU.DMuePrHBVaiQXA.d.BG0UxV20ggFOc6', '981233455', 'PATIENT', 'ACTIVE', '2026-02-21 13:54:44', '2026-02-21 13:54:44');
+(16, 'patient', 'patient', 'patient@gmail.com', '$2a$12$Z6WNNoMqVPYfShSOiKXFU.DMuePrHBVaiQXA.d.BG0UxV20ggFOc6', '981233455', 'PATIENT', 'ACTIVE', '2026-02-21 13:54:44', '2026-02-21 13:54:44'),
+(17, 'sujal', 'sujal', 'sujal@gmail.com', '$2a$12$Wwyf4ymaqFpiHs4CTJJSG.Z1E/VWz188oSd.6hhqeGwLTrPV5wLqW', '981233455', 'PATIENT', 'ACTIVE', '2026-04-10 06:31:41', '2026-04-10 06:31:41');
 
 --
 -- Indexes for dumped tables
@@ -709,13 +745,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `appointment_tests`
 --
 ALTER TABLE `appointment_tests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `labs`
@@ -739,13 +775,13 @@ ALTER TABLE `lab_verification_log`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -757,13 +793,13 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
