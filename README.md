@@ -1,5 +1,4 @@
 # Smart Lab Management System 🔬
-
 This is my **BCA 6th Semester Project**—a robust management system built using Java and the Spring Boot ecosystem to streamline, track, and automate laboratory operations.
 
 ---
@@ -32,3 +31,25 @@ All detailed documentation, features, system architecture diagrams, and the **da
 3. Open the project in your IDE (IntelliJ IDEA recommended).
 4. Update the database credentials in your application configuration files under `/src/main/resources`.
 5. Run the Spring Boot application.
+
+---
+
+## 📸 Screenshots
+
+### Front Page
+![Front page](ScreenShots/Front%20page.png)
+
+### Admin Panel
+![Admin panel](ScreenShots/Admin%20panel%201.png)
+
+### User Panel
+![User panel 1](ScreenShots/User%20panel%201.png)
+![User panel 2](ScreenShots/User%20Panel%202.png)
+
+### Lab Panel
+![Lab panel 1](ScreenShots/lab%20Panel%201.png)
+![Lab panel 2](ScreenShots/lab%20panel%202.png)
+![Lab panel 3](ScreenShots/lab%20panel%203.png)
+
+### Lab Signup
+![Lab signup](ScreenShots/lab%20signup.png)
